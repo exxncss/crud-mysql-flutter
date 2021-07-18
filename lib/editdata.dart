@@ -96,7 +96,7 @@ class _EditDataState extends State<EditData> {
                     color: Colors.blueAccent,
                     onPressed: () {
                       editData();
-                      Navigator.of(context).push(new MaterialPageRoute(
+                      Navigator.of(context).pushReplacement(new MaterialPageRoute(
                           builder: (BuildContext context) => new Home()));
                     },
                   ),

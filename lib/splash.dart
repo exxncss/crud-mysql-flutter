@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => LoginForm(),
       ));
@@ -36,7 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //Image(image: AssetImage("images/logo.png")),
+            Image(image: AssetImage("images/splash.png")),
+            SizedBox(height: 20,),
             Text(
               "Inventory Product App",
               style: TextStyle(
@@ -45,9 +46,6 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontFamily: "Netflix",
               ),
               textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 50,
             ),
             Text(
               "© Muhamad Ikhsan & Fathur Rahman",
