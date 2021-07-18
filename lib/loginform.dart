@@ -28,7 +28,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: <Widget>[
             new Column(
@@ -37,9 +37,13 @@ class _LoginFormState extends State<LoginForm> {
                   height: 20,
                 ),
                 Image(image: AssetImage("images/login.png")),
-                Text("Login Form", style: TextStyle(fontFamily: "Netflix", fontSize: 20),),
+                Text(
+                  "Login Form",
+                  style: TextStyle(fontFamily: "Netflix", fontSize: 20),
+                ),
                 new TextField(
                   controller: controllerusername,
+                  style: TextStyle(fontFamily: "Netflix"),
                   decoration: new InputDecoration(
                       hintText: "Username", labelText: "Username"),
                 ),
@@ -55,33 +59,42 @@ class _LoginFormState extends State<LoginForm> {
                   padding: const EdgeInsets.all(10.0),
                 ),
                 Container(
+                  height: 50,
                   width: double.infinity,
                   child: new RaisedButton(
-                  onPressed: (){
-                    if(controllerusername.value.text=='admin'&&controllerpassword.value.text=='admin'){
+                    onPressed: () {
+                      if (controllerusername.value.text == 'admin' &&
+                          controllerpassword.value.text == 'admin') {
                         Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return HomePage();
-                      }));
-                      // _sendDataToSecondScreen(context);
-                    } else {
-                      error(context, "Username dan password salah!");
-                    }
-                    // if(controllerusername.value.text.isEmpty&&controllerpassword.value.text.isEmpty){
-                    //   error(context, "Username dan password tidak boleh kosong!");
-                    // } else if(
-                    //   controllerusername.value.text.length<5&&controllerpassword.value.text.length<5
-                    // ){error(context, "Username dan password salah!")} 
-                    // else {
-                    //   Navigator.pushReplacement(context,
-                    //       MaterialPageRoute(builder: (context) {
-                    //     return Home();
-                    //   }));
-                    // }
-                  },
-                  child: new Text("Login"),
-                  color: Colors.blueAccent,
-                ),
+                            MaterialPageRoute(builder: (context) {
+                          return HomePage();
+                        }));
+                        // _sendDataToSecondScreen(context);
+                      } else if (controllerusername.value.text == 'ikhsan' &&
+                          controllerpassword.value.text == 'ikhsan') {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return HomePage();
+                        }));
+                        // _sendDataToSecondScreen(context);
+                      } else if (controllerusername.value.text == 'fathur' &&
+                          controllerpassword.value.text == 'fathur') {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return HomePage();
+                        }));
+                        // _sendDataToSecondScreen(context);
+                      }else {
+                        error(context, "Username dan password salah!");
+                      }
+                    },
+                    child: new Text(
+                      "Login",
+                      style:
+                          TextStyle(fontFamily: "Netflix", color: Colors.white),
+                    ),
+                    color: Colors.blueAccent,
+                  ),
                 ),
               ],
             ),
@@ -100,5 +113,3 @@ class _LoginFormState extends State<LoginForm> {
 //         ));
 //   }
 }
-
-

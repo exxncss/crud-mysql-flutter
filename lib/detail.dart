@@ -65,7 +65,10 @@ class _DetailState extends State<Detail> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-          title: new Text("${widget.list[widget.index]['item_name']}")),
+          title: new Text(
+        "${widget.list[widget.index]['item_name']}",
+        style: TextStyle(fontFamily: "Netflix"),
+      )),
       body: new Container(
         height: 370.0,
         padding: const EdgeInsets.all(20.0),
@@ -78,28 +81,35 @@ class _DetailState extends State<Detail> {
                 ),
                 new Text(
                   widget.list[widget.index]['item_name'],
-                  style: new TextStyle(fontSize: 20.0),
+                  style: new TextStyle(fontFamily: "Netflix", fontSize: 20.0),
                 ),
                 new Text(
                   "Code : ${widget.list[widget.index]['item_code']}",
                   style: new TextStyle(fontSize: 18.0),
                 ),
                 new Text(
-                  "Price : ${widget.list[widget.index]['price']}",
+                  "Price : Rp. ${widget.list[widget.index]['price']}",
                   style: new TextStyle(fontSize: 18.0),
                 ),
                 new Text(
                   "Stock : ${widget.list[widget.index]['stock']}",
                   style: new TextStyle(fontSize: 18.0),
                 ),
-                new Padding(
-                  padding: const EdgeInsets.only(top: 30.0),
-                ),
-                new Row(
-                  mainAxisSize: MainAxisSize.min,
+                // new Padding(
+                //   padding: const EdgeInsets.only(top: 30.0),
+                // ),
+                new Column(
+                  //mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    new RaisedButton(
-                      child: new Text("EDIT"),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      child: new RaisedButton(
+                      child: new Text(
+                        "EDIT",
+                        style: TextStyle(
+                            fontFamily: "Netflix", color: Colors.white),
+                      ),
                       color: Colors.green,
                       onPressed: () => Navigator.of(context)
                           .pushReplacement(new MaterialPageRoute(
@@ -109,18 +119,31 @@ class _DetailState extends State<Detail> {
                         ),
                       )),
                     ),
-                    new RaisedButton(
-                      child: new Text("DELETE"),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                      child:new RaisedButton(
+                      child: new Text(
+                        "DELETE",
+                        style: TextStyle(
+                            fontFamily: "Netflix", color: Colors.white),
+                      ),
                       color: Colors.red,
                       onPressed: () => deleteData(),
+                    ), 
                     ),
+                    
                   ],
                 ),
-                new Padding(
-                  padding: const EdgeInsets.only(top: 30.0),
-                ),
-                new RaisedButton(
-                  child: Text("Kembali"),
+                // new Padding(
+                //   padding: const EdgeInsets.only(top: 30.0),
+                // ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                  width: double.infinity,
+                  child: RaisedButton(
+                  child: Text("Kembali", style: TextStyle(color: Colors.white),),
                   color: Colors.blue,
                   onPressed: () {
                     Navigator.pushReplacement(context,
@@ -128,6 +151,7 @@ class _DetailState extends State<Detail> {
                       return Home();
                     }));
                   },
+                ),
                 )
               ],
             ),
