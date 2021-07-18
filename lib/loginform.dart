@@ -44,6 +44,7 @@ class _LoginFormState extends State<LoginForm> {
                       hintText: "Username", labelText: "Username"),
                 ),
                 new TextField(
+                  style: TextStyle(fontFamily: "Netflix"),
                   controller: controllerpassword,
                   obscureText: true,
                   enableSuggestions: false,
@@ -53,11 +54,35 @@ class _LoginFormState extends State<LoginForm> {
                 new Padding(
                   padding: const EdgeInsets.all(10.0),
                 ),
-                new RaisedButton(
-                  onPressed: null,
-                  child: new Text("Add Data"),
+                Container(
+                  width: double.infinity,
+                  child: new RaisedButton(
+                  onPressed: (){
+                    if(controllerusername.value.text=='admin'&&controllerpassword.value.text=='admin'){
+                        Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return HomePage();
+                      }));
+                      // _sendDataToSecondScreen(context);
+                    } else {
+                      error(context, "Username dan password salah!");
+                    }
+                    // if(controllerusername.value.text.isEmpty&&controllerpassword.value.text.isEmpty){
+                    //   error(context, "Username dan password tidak boleh kosong!");
+                    // } else if(
+                    //   controllerusername.value.text.length<5&&controllerpassword.value.text.length<5
+                    // ){error(context, "Username dan password salah!")} 
+                    // else {
+                    //   Navigator.pushReplacement(context,
+                    //       MaterialPageRoute(builder: (context) {
+                    //     return Home();
+                    //   }));
+                    // }
+                  },
+                  child: new Text("Login"),
                   color: Colors.blueAccent,
-                )
+                ),
+                ),
               ],
             ),
           ],
@@ -65,4 +90,15 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
+
+// void _sendDataToSecondScreen(BuildContext context) {
+//     String textToSend = controllerusername.text;
+//     Navigator.pushReplacement(
+//         context,
+//         MaterialPageRoute(
+//           builder: (context) => HomePage(text: textToSend,),
+//         ));
+//   }
 }
+
+

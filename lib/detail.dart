@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './editdata.dart';
 import 'package:http/http.dart' as http;
-import 'homepage.dart';
+import 'listdata.dart';
 
 class Detail extends StatefulWidget {
   List list;
