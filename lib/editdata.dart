@@ -85,6 +85,16 @@ class _EditDataState extends State<EditData> {
                     Navigator.of(context).push(new MaterialPageRoute(
                         builder: (BuildContext context) => new Home()));
                   },
+                ),
+                RaisedButton(
+                  child: Text("Kembali ke menu"),
+                  color: Colors.red,
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Home();
+                    }));
+                  },
                 )
               ],
             ),

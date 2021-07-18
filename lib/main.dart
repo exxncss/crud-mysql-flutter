@@ -35,8 +35,9 @@ class _HomeState extends State<Home> {
         // onPressed: () => Navigator.of(context).push(new MaterialPageRoute(
         //   builder: (BuildContext context) => new AddData(),
         // )),
-        onPressed: () => Navigator.of(context).push(new MaterialPageRoute(
-            builder: (BuildContext context) => new AddData())),
+        onPressed: () => Navigator.of(context).pushReplacement(
+            new MaterialPageRoute(
+                builder: (BuildContext context) => new AddData())),
       ),
       body: new FutureBuilder<List>(
         future: getData(),
@@ -68,11 +69,12 @@ class ItemList extends StatelessWidget {
         return new Container(
           padding: const EdgeInsets.all(10.0),
           child: new GestureDetector(
-            onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => new Detail(
-                      list: list,
-                      index: i,
-                    ))),
+            onTap: () =>
+                Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                    builder: (BuildContext context) => new Detail(
+                          list: list,
+                          index: i,
+                        ))),
             child: new Card(
               child: new ListTile(
                 title: new Text(list[i]['item_name']),

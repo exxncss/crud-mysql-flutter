@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import './main.dart';
+import 'dart:async';
+import 'dart:convert';
 
 class AddData extends StatefulWidget {
   @override
@@ -62,15 +64,27 @@ class _AddDataState extends State<AddData> {
                 new RaisedButton(
                   onPressed: () {
                     addData();
-                    Navigator.pop(context);
-                    // Navigator.pushReplacement(context,
-                    //     MaterialPageRoute(builder: (context) {
-                    //   return Home();
-                    // }));
+                    //Navigator.pop(context);
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Home();
+                    }));
                     // Navigator.of(context).pushReplacement(new MaterialPageRoute(
                     //     builder: (BuildContext context) => new Home()));
                   },
                   child: new Text("ADD DATA"),
+                  color: Colors.blueAccent,
+                ),
+                new RaisedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Home();
+                    }));
+                    // Navigator.of(context).pushReplacement(new MaterialPageRoute(
+                    //     builder: (BuildContext context) => new Home()));
+                  },
+                  child: new Text("Kembali"),
                   color: Colors.blueAccent,
                 )
               ],

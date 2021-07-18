@@ -15,6 +15,9 @@ class _DetailState extends State<Detail> {
   void deleteData() {
     var url = "http://10.0.2.2/my_store/deleteData.php";
     http.post(url, body: {'id': widget.list[widget.index]['id']});
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return Home();
+    }));
   }
 
   void confirm() {
@@ -52,7 +55,7 @@ class _DetailState extends State<Detail> {
       appBar: new AppBar(
           title: new Text("${widget.list[widget.index]['item_name']}")),
       body: new Container(
-        height: 270.0,
+        height: 370.0,
         padding: const EdgeInsets.all(20.0),
         child: new Card(
           child: new Center(
@@ -100,6 +103,19 @@ class _DetailState extends State<Detail> {
                       onPressed: () => deleteData(),
                     ),
                   ],
+                ),
+                new Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                ),
+                new RaisedButton(
+                  child: Text("Kembali"),
+                  color: Colors.blue,
+                  onPressed: () {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return Home();
+                    }));
+                  },
                 )
               ],
             ),

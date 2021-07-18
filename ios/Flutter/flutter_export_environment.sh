@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/exxncss/Development/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/exxncss/Downloads/Flutter-CRUD-phpMyAdmin-master"
+export "FLUTTER_APPLICATION_PATH=/Users/exxncss/Documents/GitHub/crud-mysql-flutter"
 export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "SYMROOT=${SOURCE_ROOT}/../build/ios"
