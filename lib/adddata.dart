@@ -26,6 +26,17 @@ class _AddDataState extends State<AddData> {
     });
   }
 
+  void error(BuildContext context, String error) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text(error),
+        action: SnackBarAction(
+            label: 'OK', onPressed: scaffold.hideCurrentSnackBar),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -63,7 +74,6 @@ class _AddDataState extends State<AddData> {
                 ),
                 new RaisedButton(
                   onPressed: () {
-                    addData();
                     //Navigator.pop(context);
                     Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) {
@@ -72,19 +82,63 @@ class _AddDataState extends State<AddData> {
                     // Navigator.of(context).pushReplacement(new MaterialPageRoute(
                     //     builder: (BuildContext context) => new Home()));
                   },
-                  child: new Text("ADD DATA"),
+                  child: new Text("Kembali"),
                   color: Colors.blueAccent,
                 ),
                 new RaisedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Home();
-                    }));
+                    if (controllerCode.value.text.isEmpty) {
+                      setState(() {
+                        error(context, "ID tidak boleh kosong");
+                      }); //ID gabole kosong
+                    } else if (controllerCode.value.text
+                        .contains(RegExp(r'[a-zA-Z]'))) {
+                      setState(() {
+                        error(context, "ID harus angka");
+                        error(context, "Isi data dengan benar!");
+                      }); //id harus angka
+                    } else if (controllerCode.value.text.length != 3) {
+                      setState(() {
+                        error(context, "ID harus berisi 3 angka");
+                        error(context, "Isi data dengan benar!");
+                      }); //id harus 3 angka
+                    } else if (controllerName.value.text.isEmpty) {
+                      setState(() {
+                        error(context, "Nama item tidak boleh kosong");
+                        error(context, "Isi data dengan benar!");
+                      }); //nama ga bole kosong
+                    } else if (controllerName.value.text.length < 5) {
+                      error(context, "Nama item minimal harus 5 karakter");
+                      error(context, "Isi data dengan benar!");
+                      //nama gaboleh kurang dari 5
+                    } else if (controllerPrice.value.text.isEmpty) {
+                      setState(() {
+                        error(context, "Harga tidak boleh kosong");
+                        error(context, "Isi data dengan benar!");
+                      }); //harga gabole kosong
+                    } else if (controllerPrice.value.text
+                        .contains(RegExp(r'[a-zA-Z]'))) {
+                      setState(() {
+                        error(context, "Isi hanya dengan angka");
+                        error(context, "Isi data dengan benar!");
+                      }); //harga harus angka
+                    } else if (controllerPrice.value.text.length < 4) {
+                      setState(() {
+                        error(context, "Harga tidak sesuai format");
+                        error(context, "Isi data dengan benar!");
+                      }); //harga harus minimal 4 karakter
+                    } else {
+                      addData();
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Home();
+                      }));
+                    }
+
                     // Navigator.of(context).pushReplacement(new MaterialPageRoute(
                     //     builder: (BuildContext context) => new Home()));
                   },
-                  child: new Text("Kembali"),
+                  child: new Text("Add Data"),
                   color: Colors.blueAccent,
                 )
               ],
