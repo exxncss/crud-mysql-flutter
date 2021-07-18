@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import './main.dart';
+import 'homepage.dart';
 
 class EditData extends StatefulWidget {
   final List list;
