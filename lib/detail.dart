@@ -18,35 +18,47 @@ class _DetailState extends State<Detail> {
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
       return Home();
     }));
+    _DeleteData(context, "Data berhasil dihapus");
   }
 
-  void confirm() {
-    AlertDialog alertDialog = new AlertDialog(
-      content: new Text(
-          "Are You sure want to delete '${widget.list[widget.index]['item_name']}'"),
-      actions: <Widget>[
-        new RaisedButton(
-          child: new Text(
-            "OK DELETE!",
-            style: new TextStyle(color: Colors.black),
-          ),
-          color: Colors.red,
-          onPressed: () {
-            deleteData();
-            Navigator.of(context).push(new MaterialPageRoute(
-              builder: (BuildContext context) => new Home(),
-            ));
-          },
-        ),
-        new RaisedButton(
-          child: new Text("CANCEL", style: new TextStyle(color: Colors.black)),
-          color: Colors.green,
-          onPressed: () => Navigator.pop(context),
-        ),
-      ],
-    );
+  // void confirm() {
+  //   AlertDialog alertDialog = new AlertDialog(
+  //     content: new Text(
+  //         "Are You sure want to delete '${widget.list[widget.index]['item_name']}'"),
+  //     actions: <Widget>[
+  //       new RaisedButton(
+  //         child: new Text(
+  //           "OK DELETE!",
+  //           style: new TextStyle(color: Colors.black),
+  //         ),
+  //         color: Colors.red,
+  //         onPressed: () {
+  //           deleteData();
+  //           Navigator.of(context).push(new MaterialPageRoute(
+  //             builder: (BuildContext context) => new Home(),
+  //           ));
+  //         },
+  //       ),
+  //       new RaisedButton(
+  //         child: new Text("CANCEL", style: new TextStyle(color: Colors.black)),
+  //         color: Colors.green,
+  //         onPressed: () => Navigator.pop(context),
+  //       ),
+  //     ],
+  //   );
 
-    //showDialog(context: context, child: alertDialog);
+  //   //showDialog(context: context, child: alertDialog);
+  // }
+
+  void _DeleteData(BuildContext context, String error) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: Text(error),
+        action: SnackBarAction(
+            label: 'OK', onPressed: scaffold.hideCurrentSnackBar),
+      ),
+    );
   }
 
   @override

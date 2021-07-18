@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: <Widget>[
             //Image(image: AssetImage("images/logo.png")),
             Text(
-              "Untuk Pembelajaran\n Materi Dasar Desain Grafis",
+              "Inventory Product App",
               style: TextStyle(
                 fontSize: 18.0,
                 color: Colors.black,
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 50,
             ),
             Text(
-              "© Muhamad Ikhsan",
+              "© Muhamad Ikhsan & Fathur Rahman",
               style: TextStyle(
                 fontSize: 14.0,
                 color: Colors.black,
