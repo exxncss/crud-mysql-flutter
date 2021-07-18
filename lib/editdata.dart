@@ -46,48 +46,67 @@ class _EditDataState extends State<EditData> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("EDIT DATA"),
+        title: new Text(
+          "Edit Data",
+          style: TextStyle(fontFamily: "Netflix"),
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(
           children: <Widget>[
             new Column(
               children: <Widget>[
                 new TextField(
                   controller: controllerCode,
+                  style: TextStyle(fontFamily: "Netflix", fontSize: 15),
                   decoration: new InputDecoration(
                       hintText: "Item Code", labelText: "Item Code"),
                 ),
                 new TextField(
                   controller: controllerName,
+                  style: TextStyle(fontFamily: "Netflix", fontSize: 15),
                   decoration: new InputDecoration(
                       hintText: "Item Name", labelText: "Item Name"),
                 ),
                 new TextField(
                   controller: controllerPrice,
+                  style: TextStyle(fontFamily: "Netflix", fontSize: 15),
                   decoration: new InputDecoration(
                       hintText: "Price", labelText: "Price"),
                 ),
                 new TextField(
                   controller: controllerStock,
+                  style: TextStyle(fontFamily: "Netflix", fontSize: 15),
                   decoration: new InputDecoration(
                       hintText: "Stock", labelText: "Stock"),
                 ),
-                new Padding(
-                  padding: const EdgeInsets.all(10.0),
+                SizedBox(
+                  height: 30,
                 ),
-                new RaisedButton(
-                  child: new Text("EDIT DATA"),
-                  color: Colors.blueAccent,
-                  onPressed: () {
-                    editData();
-                    Navigator.of(context).push(new MaterialPageRoute(
-                        builder: (BuildContext context) => new Home()));
-                  },
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  child: RaisedButton(
+                    child: new Text(
+                      "EDIT DATA",
+                      style:
+                          TextStyle(fontFamily: "Netflix", color: Colors.white),
+                    ),
+                    color: Colors.blueAccent,
+                    onPressed: () {
+                      editData();
+                      Navigator.of(context).push(new MaterialPageRoute(
+                          builder: (BuildContext context) => new Home()));
+                    },
+                  ),
                 ),
-                RaisedButton(
-                  child: Text("Kembali ke menu"),
+                SizedBox(height: 20,),
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  child: RaisedButton(
+                  child: Text("Kembali ke menu", style: TextStyle(fontFamily: "Netflix", color: Colors.white),),
                   color: Colors.red,
                   onPressed: () {
                     Navigator.pushReplacement(context,
@@ -95,6 +114,7 @@ class _EditDataState extends State<EditData> {
                       return Home();
                     }));
                   },
+                ),
                 )
               ],
             ),
