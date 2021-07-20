@@ -21,35 +21,6 @@ class _DetailState extends State<Detail> {
     _DeleteData(context, "Data berhasil dihapus");
   }
 
-  // void confirm() {
-  //   AlertDialog alertDialog = new AlertDialog(
-  //     content: new Text(
-  //         "Are You sure want to delete '${widget.list[widget.index]['item_name']}'"),
-  //     actions: <Widget>[
-  //       new RaisedButton(
-  //         child: new Text(
-  //           "OK DELETE!",
-  //           style: new TextStyle(color: Colors.black),
-  //         ),
-  //         color: Colors.red,
-  //         onPressed: () {
-  //           deleteData();
-  //           Navigator.of(context).push(new MaterialPageRoute(
-  //             builder: (BuildContext context) => new Home(),
-  //           ));
-  //         },
-  //       ),
-  //       new RaisedButton(
-  //         child: new Text("CANCEL", style: new TextStyle(color: Colors.black)),
-  //         color: Colors.green,
-  //         onPressed: () => Navigator.pop(context),
-  //       ),
-  //     ],
-  //   );
-
-  //   //showDialog(context: context, child: alertDialog);
-  // }
-
   void _DeleteData(BuildContext context, String error) {
     final scaffold = ScaffoldMessenger.of(context);
     scaffold.showSnackBar(
@@ -105,35 +76,34 @@ class _DetailState extends State<Detail> {
                       width: double.infinity,
                       padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
                       child: new RaisedButton(
-                      child: new Text(
-                        "EDIT",
-                        style: TextStyle(
-                            fontFamily: "Netflix", color: Colors.white),
-                      ),
-                      color: Colors.green,
-                      onPressed: () => Navigator.of(context)
-                          .pushReplacement(new MaterialPageRoute(
-                        builder: (BuildContext context) => new EditData(
-                          list: widget.list,
-                          index: widget.index,
+                        child: new Text(
+                          "EDIT",
+                          style: TextStyle(
+                              fontFamily: "Netflix", color: Colors.white),
                         ),
-                      )),
-                    ),
+                        color: Colors.green,
+                        onPressed: () => Navigator.of(context)
+                            .pushReplacement(new MaterialPageRoute(
+                          builder: (BuildContext context) => new EditData(
+                            list: widget.list,
+                            index: widget.index,
+                          ),
+                        )),
+                      ),
                     ),
                     Container(
                       width: double.infinity,
                       padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                      child:new RaisedButton(
-                      child: new Text(
-                        "DELETE",
-                        style: TextStyle(
-                            fontFamily: "Netflix", color: Colors.white),
+                      child: new RaisedButton(
+                        child: new Text(
+                          "DELETE",
+                          style: TextStyle(
+                              fontFamily: "Netflix", color: Colors.white),
+                        ),
+                        color: Colors.red,
+                        onPressed: () => deleteData(),
                       ),
-                      color: Colors.red,
-                      onPressed: () => deleteData(),
-                    ), 
                     ),
-                    
                   ],
                 ),
                 // new Padding(
@@ -143,15 +113,18 @@ class _DetailState extends State<Detail> {
                   padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
                   width: double.infinity,
                   child: RaisedButton(
-                  child: Text("Kembali", style: TextStyle(color: Colors.white),),
-                  color: Colors.blue,
-                  onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Home();
-                    }));
-                  },
-                ),
+                    child: Text(
+                      "Kembali",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    color: Colors.blue,
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Home();
+                      }));
+                    },
+                  ),
                 )
               ],
             ),

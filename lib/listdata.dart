@@ -25,7 +25,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("List Data Inventory",style: TextStyle(fontFamily: "Netflix"),),
+        title: new Text(
+          "List Data Inventory",
+          style: TextStyle(fontFamily: "Netflix"),
+        ),
         backgroundColor: Colors.pink,
       ),
       floatingActionButton: Row(
@@ -36,7 +39,7 @@ class _HomeState extends State<Home> {
             onPressed: () {
               Navigator.of(context).pushReplacement(new MaterialPageRoute(
                   builder: (BuildContext context) => new HomePage()));
-                  // logout(context);
+              // logout(context);
             },
             // onPressed: () => Navigator.of(context).pushReplacement(
             //   new MaterialPageRoute(
@@ -45,7 +48,9 @@ class _HomeState extends State<Home> {
             icon: const Icon(Icons.logout),
             backgroundColor: Colors.blue,
           ),
-          SizedBox(width: 20,),
+          SizedBox(
+            width: 20,
+          ),
           //SizedBox(height: 10,),
           FloatingActionButton.extended(
             heroTag: "add data",
@@ -53,28 +58,13 @@ class _HomeState extends State<Home> {
               Navigator.of(context).pushReplacement(new MaterialPageRoute(
                   builder: (BuildContext context) => new AddData()));
             },
-            // onPressed: () => Navigator.of(context).pushReplacement(
-            //   new MaterialPageRoute(
-            //       builder: (BuildContext context) => new AddData())),
             label: const Text('Tambah Data'),
             icon: const Icon(Icons.add_box),
             backgroundColor: Colors.pink,
           ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton.extended(
-      //   onPressed: () {
-      //     Navigator.of(context).pushReplacement(
-      //       new MaterialPageRoute(
-      //           builder: (BuildContext context) => new AddData()));
-      //   },
-      //     // onPressed: () => Navigator.of(context).pushReplacement(
-      //     //   new MaterialPageRoute(
-      //     //       builder: (BuildContext context) => new AddData())),
-      //   label: const Text('Tambah Data'),
-      //   icon: const Icon(Icons.add_box),
-      //   backgroundColor: Colors.pink,
-      // ),
+
       body: new FutureBuilder<List>(
         future: getData(),
         builder: (context, snapshot) {
@@ -128,7 +118,10 @@ class ItemList extends StatelessWidget {
                         ))),
             child: new Card(
               child: new ListTile(
-                title: new Text(list[i]['item_name'], style: TextStyle(fontFamily: "Netflix"),),
+                title: new Text(
+                  list[i]['item_name'],
+                  style: TextStyle(fontFamily: "Netflix"),
+                ),
                 leading: new Icon(Icons.widgets),
                 subtitle: new Text("Stock : ${list[i]['stock']}"),
               ),
